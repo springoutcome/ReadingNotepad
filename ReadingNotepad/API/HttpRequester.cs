@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.IO;
+using System.Net.Http.Headers;
 
 namespace ReadingNotepad.API
 {
@@ -76,6 +78,45 @@ namespace ReadingNotepad.API
             {
                 return default(T);
             }
+        }
+
+        public static async Task<T> PostFile<T>(string filePath, string url) where T : class
+        {
+            var fileContent = new StreamContent(File.OpenRead(filePath));
+            fileContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+            {
+                FileName = Path.GetFileName(filePath)
+            };
+            var content = new MultipartFormDataContent();
+            content.Add(fileContent);
+
+            var response = await client.PostAsync(url, content);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
+            }
+            else
+            {
+                return default(T);
+            }
+        }
+
+        public static async void FileNoQueryGet(string url, string outputPath)
+        {
+            var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+
+                using (var fileStream = File.Create(outputPath))
+                {
+                    using (var httpStream = await response.Content.ReadAsStreamAsync())
+                    {
+                        httpStream.CopyTo(fileStream);
+                        fileStream.Flush();
+                    }
+                }
+            }
+
         }
     }
 }
