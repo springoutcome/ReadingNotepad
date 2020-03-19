@@ -7,7 +7,7 @@ using Android.Widget;
 namespace ReadingNotepad
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class MainActivity : AppCompatActivity
+    public class TopActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
