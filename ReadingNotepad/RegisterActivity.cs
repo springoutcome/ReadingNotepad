@@ -12,8 +12,8 @@ using Android.Widget;
 
 namespace ReadingNotepad
 {
-    [Activity(Label = "MainActivity")]
-    public class MainActivity : Activity
+    [Activity(Label = "RegisterActivity")]
+    public class RegisterActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
