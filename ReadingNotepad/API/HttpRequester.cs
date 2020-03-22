@@ -67,6 +67,7 @@ namespace ReadingNotepad.API
             }
         }
 
+
         public static async Task<T> Delete<T>(string url) where T : class
         {
             var response = await client.DeleteAsync(url);
