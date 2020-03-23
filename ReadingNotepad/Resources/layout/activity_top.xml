@@ -1,0 +1,59 @@
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0b2b79"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="8"
+        >
+         <ImageView
+            android:src="@drawable/book_home"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+       
+            />
+
+
+
+
+        <Button
+            android:id="@+id/btn_top_login"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="60dp"
+            android:layout_marginHorizontal="30dp"
+            android:padding="0dp"
+            android:background="@android:color/white"
+            android:text="ログイン"
+            style="@style/AlertDialog.AppCompat.Light"
+            android:textSize="25sp"
+            android:layout_weight="1.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fontFamily="serif"
+            android:textStyle="bold"/>
+
+        <TextView
+             android:id="@+id/txt_top_create_account"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="新しいアカウントを作成する"
+                android:textColor="@android:color/darker_gray"
+             android:textStyle="bold"  
+             android:textSize="18sp"
+            android:layout_margin="5dp"           
+            android:gravity="center"                                
+            />
+    </LinearLayout>
+    </LinearLayout>
