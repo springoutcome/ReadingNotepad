@@ -42,7 +42,7 @@ namespace ReadingNotepad
                     this.RunOnUiThread(new Action(()=> 
                     {
                         Toast.MakeText(Android.App.Application.Context, d["message"], ToastLength.Long).Show();
-                        if (d["errCode"] == null)
+                        if (d["error"] == "false")
                         {
                             //遷移処理
                             var intent = new Intent(this, typeof(MainActivity));
