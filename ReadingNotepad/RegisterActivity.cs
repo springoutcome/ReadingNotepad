@@ -21,11 +21,11 @@ namespace ReadingNotepad
             SetContentView(Resource.Layout.activity_register);
 
 
-            EditText name = FindViewById<EditText>(Resource.Id.register_name);
-            EditText mail = FindViewById<EditText>(Resource.Id.register_mail);
-            EditText pass = FindViewById<EditText>(Resource.Id.register_pass);
-            Button loginButton = FindViewById<Button>(Resource.Id.register_btn);
-            Button backButton = FindViewById<Button>(Resource.Id.register_backBtn);
+            EditText name = FindViewById<EditText>(Resource.Id.edt_register_name);
+            EditText mail = FindViewById<EditText>(Resource.Id.edt_register_email);
+            EditText pass = FindViewById<EditText>(Resource.Id.edt_register_password);
+            Button loginButton = FindViewById<Button>(Resource.Id.btn_register);
+            TextView backButton = FindViewById<TextView>(Resource.Id.txt_register_back);
 
             loginButton.Click += delegate
             {

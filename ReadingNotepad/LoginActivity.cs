@@ -21,10 +21,10 @@ namespace ReadingNotepad
             SetContentView(Resource.Layout.activity_login);
             // Create your application here
             //login_btn
-            EditText mail = FindViewById<EditText>(Resource.Id.login_mail);
-            EditText pass = FindViewById<EditText>(Resource.Id.login_pass);
-            Button loginButton = FindViewById<Button>(Resource.Id.login_btn);
-            Button backButton = FindViewById<Button>(Resource.Id.login_backBtn);
+            EditText mail = FindViewById<EditText>(Resource.Id.edt_login_email);
+            EditText pass = FindViewById<EditText>(Resource.Id.edt_login_password);
+            Button loginButton = FindViewById<Button>(Resource.Id.btn_login);
+            TextView backButton = FindViewById<TextView>(Resource.Id.txt_login_back);
 
             loginButton.Click += delegate
             {

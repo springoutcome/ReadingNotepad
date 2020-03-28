@@ -17,14 +17,14 @@ namespace ReadingNotepad
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_top);
 
-            Button loginButton = FindViewById<Button>(Resource.Id.loginView_btn);
+            Button loginButton = FindViewById<Button>(Resource.Id.btn_top_login);
 
             loginButton.Click += delegate {
                 var intent = new Intent(this, typeof(LoginActivity));
                 StartActivity(intent);
             };
 
-            Button registerButton = FindViewById<Button>(Resource.Id.registerView_btn);
+            TextView registerButton = FindViewById<TextView>(Resource.Id.txt_top_create_account);
 
             registerButton.Click += delegate {
                 var intent = new Intent(this, typeof(RegisterActivity));
