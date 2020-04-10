@@ -17,7 +17,7 @@ namespace ReadingNotepad.API
     {
         public static async Task<Dictionary<string, string>> GetAllUsers()
         {
-            return await HttpRequester.NoQueryGet<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/api/users");
+            return await HttpRequester.NoQueryGet<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/users");
         }
         //レスポンスはerrCode,message
         public static async Task<Dictionary<string, string>> Login(string email, string password)
@@ -25,7 +25,7 @@ namespace ReadingNotepad.API
             Dictionary<string, string> d = new Dictionary<string, string>();
             d.Add("email", email);
             d.Add("password", password);
-            return await HttpRequester.Post<Dictionary<string, string>>(d, "https://rnserver2020.herokuapp.com/api/users/login");
+            return await HttpRequester.Post<Dictionary<string, string>>(d, "https://rnserver2020.herokuapp.com/users/login");
         }
 
         public static async Task<Dictionary<string, string>> Register(string email, string name, string password)
@@ -34,12 +34,12 @@ namespace ReadingNotepad.API
             d.Add("email", email);
             d.Add("name", name);
             d.Add("password", password);
-            return await HttpRequester.Post<Dictionary<string, string>>(d, "https://rnserver2020.herokuapp.com/api/users/register");
+            return await HttpRequester.Post<Dictionary<string, string>>(d, "https://rnserver2020.herokuapp.com/users/register");
         }
 
         public static async Task<Dictionary<string,string>> GetUser(string userID)
         {
-            return await HttpRequester.NoQueryGet<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/api/users/" + userID);
+            return await HttpRequester.NoQueryGet<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/users/" + userID);
         }
 
         public static async Task<Dictionary<string, string>> UpdateUser(string userID,string email, string name, string password)
@@ -48,17 +48,17 @@ namespace ReadingNotepad.API
             d.Add("email", email);
             d.Add("name", name);
             d.Add("password", password);
-            return await HttpRequester.Put<Dictionary<string, string>>(d, "https://rnserver2020.herokuapp.com/api/users/"+userID);
+            return await HttpRequester.Put<Dictionary<string, string>>(d, "https://rnserver2020.herokuapp.com/users/"+userID);
         }
 
         public static async Task<Dictionary<string, string>> DeleteUser(string userID)
         {
-            return await HttpRequester.Delete<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/api/users/" + userID);
+            return await HttpRequester.Delete<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/users/" + userID);
         }
 
         public static async Task<Dictionary<string, string>> GetAllBooks(string userID)
         {
-            return await HttpRequester.NoQueryGet<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/api/books");
+            return await HttpRequester.NoQueryGet<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/books");
         }
 
         public static async Task<Dictionary<string, string>> BookRegister(string user_id, string title, string auther, string category,string photo,string impression)
@@ -70,17 +70,17 @@ namespace ReadingNotepad.API
             d.Add("category", category);
             d.Add("photo", photo);
             d.Add("impression", impression);
-            return await HttpRequester.Post<Dictionary<string, string>>(d, "https://rnserver2020.herokuapp.com/api/books/register");
+            return await HttpRequester.Post<Dictionary<string, string>>(d, "https://rnserver2020.herokuapp.com/books/register");
         }
 
         public static async Task<Dictionary<string, string>> GetBook(string bookID)
         {
-            return await HttpRequester.NoQueryGet<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/api/books/book_id/"+bookID);
+            return await HttpRequester.NoQueryGet<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/books/book_id/"+bookID);
         }
 
         public static async Task<Dictionary<string, string>> GetUsersBook(string userID)
         {
-            return await HttpRequester.NoQueryGet<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/api/books/user_id/" + userID);
+            return await HttpRequester.NoQueryGet<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/books/user_id/" + userID);
         }
 
         public static async Task<Dictionary<string, string>> UpdateBook(string bookID, string user_id, string title, string auther, string category, string photo, string impression)
@@ -92,12 +92,12 @@ namespace ReadingNotepad.API
             d.Add("category", category);
             d.Add("photo", photo);
             d.Add("impression", impression);
-            return await HttpRequester.Post<Dictionary<string, string>>(d, "https://rnserver2020.herokuapp.com/api/"+bookID);
+            return await HttpRequester.Post<Dictionary<string, string>>(d, "https://rnserver2020.herokuapp.com/"+bookID);
         }
 
         public static async Task<Dictionary<string, string>> DeleteBook(string bookID)
         {
-            return await HttpRequester.Delete<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/api/" + bookID);
+            return await HttpRequester.Delete<Dictionary<string, string>>("https://rnserver2020.herokuapp.com/" + bookID);
         }
     }
 }
